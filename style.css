@@ -60,3 +60,25 @@ button {
 .corrected {
   background-color: #fff3b0; /* yellow after mistakes */
 }
+
+.wrong-final { background-color: #F44336; color: white; } /* red */
+
+/* CUSTOMS */
+
+#quizContainer {
+    width: clamp(300px, 50%, 500px);
+    margin: auto;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+#problem {
+    font-size: 5vw;
+    line-height: 1;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    background-color: #f5f5f5;
+    border: #000 2px solid;
+    border-radius: 5px;
+}

@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Multiplication Trainer</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Multiplication Trainer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div id="app">
-    <h1>Multiplication Trainer</h1>
-    <button id="startBtn">Start</button>
+    <div id="app">
+        <h1>Multiplication Trainer</h1>
+        <button id="startBtn">Start</button>
 
-    <div id="quiz" class="hidden">
-      <p id="problem"></p>
-      <input type="number" id="answer" placeholder="Your answer" />
-      <button id="submitBtn">Submit</button>
+        <div id="quizContainer" class="hidden">
+            <div id="quiz">
+                <p id="problem"></p>
+                <input type="number" id="answer" placeholder="Your answer" />
+                <button id="submitBtn">Submit</button>
+            </div>
+
+            <div id="results" class="hidden">
+                <h2>Results</h2>
+                <p id="score"></p>
+                <p id="time"></p>
+                <p id="stars"></p>
+
+                <label for="parentEmail">Parent's Email:</label>
+                <input type="email" id="parentEmail" placeholder="Enter email" />
+
+                <button id="downloadBtn">Download Results</button>
+                <button id="emailJSBtn">Send Email via EmailJS</button>
+
+                <button id="restartBtn">Play Again</button>
+            </div>
+
+        </div>
+
+
+        <div id="tableContainer" class="hidden">
+            <h2>Multiplication Table</h2>
+            <table id="multiplicationTable"></table>
+        </div>
     </div>
 
-    <div id="tableContainer" class="hidden">
-      <h2>Multiplication Table</h2>
-      <table id="multiplicationTable"></table>
-    </div>
 
-    <div id="results" class="hidden">
-      <h2>Results</h2>
-      <p id="score"></p>
-      <p id="time"></p>
-      <p id="stars"></p>
-      <button id="restartBtn">Play Again</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init("fiWkQXqRo48rxOKya"); // Replace with your EmailJS Public Key
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
