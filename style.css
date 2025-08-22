@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+#quiz, #results {
+  margin-top: 20px;
+}
+
+input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Multiplication Table */
+#multiplicationTable {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+#multiplicationTable td,
+#multiplicationTable th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+.unsolved {
+  color: #aaa;
+  font-style: italic;
+}
+
+.solved {
+  font-weight: bold;
+  color: #000;
+}
+
+.correct-first {
+  background-color: #c6f6c6; /* green */
+}
+
+.wrong-attempt {
+  background-color: #f6c6c6; /* red while unsolved */
+}
+
+.corrected {
+  background-color: #fff3b0; /* yellow after mistakes */
+}

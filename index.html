@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Multiplication Trainer</h1>
+    <button id="startBtn">Start</button>
+
+    <div id="quiz" class="hidden">
+      <p id="problem"></p>
+      <input type="number" id="answer" placeholder="Your answer" />
+      <button id="submitBtn">Submit</button>
+    </div>
+
+    <div id="tableContainer" class="hidden">
+      <h2>Multiplication Table</h2>
+      <table id="multiplicationTable"></table>
+    </div>
+
+    <div id="results" class="hidden">
+      <h2>Results</h2>
+      <p id="score"></p>
+      <p id="time"></p>
+      <p id="stars"></p>
+      <button id="restartBtn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
