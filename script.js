@@ -12,6 +12,8 @@ let wrongProblems = [];
 let struggledProblems = [];
 
 // Elements
+const mainHeading = document.getElementsByTagName("h1")
+const rules = document.getElementById("rules");
 const startBtn = document.getElementById("startBtn");
 const quiz = document.getElementById("quiz");
 const results = document.getElementById("results");
@@ -29,7 +31,6 @@ const table = document.getElementById("multiplicationTable");
 function showProblem() {
     problem.textContent = `${currentA} × ${currentB}`;
     answerInput.value = "";
-    answerInput.focus();
     firstAttempt = true;
     attemptCount = 0;
     problemStartTime = Date.now();
@@ -95,7 +96,7 @@ function checkAnswer() {
         const elapsed = (Date.now() - problemStartTime) / 1000;
         correct++;
 
-        if (firstAttempt && elapsed <= 5) {
+        if (firstAttempt && elapsed <= 10) {
             // First try & fast → green
             markSolved(currentA, currentB, "correct");
         } else {
@@ -125,7 +126,6 @@ function checkAnswer() {
         const cell = document.getElementById(`cell-${currentA}-${currentB}`);
         if (cell) cell.classList.add("wrong-attempt"); // light red while trying
         answerInput.value = "";
-        answerInput.focus();
     }
 }
 
@@ -155,7 +155,13 @@ function downloadResults() {
 
 // ----- EMAILJS -----
 function sendEmailJS() {
-    const parentEmail = document.getElementById("parentEmail").value;
+    const studentName = document.getElementById("studentName").value.trim();
+    const parentEmail = document.getElementById("parentEmail").value.trim();
+
+    if (!studentName) {
+        alert("Please enter the student's name.");
+        return;
+    }
     if (!parentEmail) {
         alert("Please enter a parent's email.");
         return;
@@ -165,7 +171,6 @@ function sendEmailJS() {
     const timeStr = new Date().toLocaleTimeString();
     const total = correct + wrong;
 
-    // Prepare plain text for email
     const struggledText = struggledProblems.length
         ? struggledProblems.join("\n")
         : "None!";
@@ -173,9 +178,9 @@ function sendEmailJS() {
         ? wrongProblems.join("\n")
         : "None!";
 
-    // Send email via EmailJS
     emailjs.send("service_cyydwqe", "multiplication-results", {
         to_name: "Parent",
+        student_name: studentName,  // 👈 new field
         from_name: "Multiplication Is Fun Team",
         reply_to: parentEmail,
         date: dateStr,
@@ -193,16 +198,14 @@ function sendEmailJS() {
     });
 }
 
-
-
-
-
 // ----- EVENT LISTENERS -----
 startBtn.addEventListener("click", () => {
     currentA = 1; currentB = 1; correct = 0; wrong = 0; struggled = 0;
     wrongProblems = []; struggledProblems = [];
     startTime = Date.now();
 
+    mainHeading[0].classList.add("hidden");
+    rules.classList.add("hidden");
     startBtn.classList.add("hidden");
     quizContainer.classList.remove("hidden");
     quiz.classList.remove("hidden");
@@ -217,3 +220,17 @@ answerInput.addEventListener("keypress", e => { if (e.key === "Enter") checkAnsw
 restartBtn.addEventListener("click", () => { results.classList.add("hidden"); startBtn.classList.remove("hidden"); });
 document.getElementById("downloadBtn").addEventListener("click", downloadResults);
 document.getElementById("emailJSBtn").addEventListener("click", sendEmailJS);
+
+// ----- NUMPAD -----
+document.querySelectorAll(".num").forEach(btn => {
+  btn.addEventListener("click", () => {
+    answerInput.value += btn.textContent;
+  });
+});
+
+document.getElementById("clearBtn").addEventListener("click", () => {
+  answerInput.value = answerInput.value.slice(0, -1);
+});
+
+document.getElementById("enterBtn").addEventListener("click", checkAnswer);
+

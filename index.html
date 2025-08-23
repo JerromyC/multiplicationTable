@@ -3,43 +3,86 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplication Trainer</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
     <div id="app">
         <h1>Multiplication Trainer</h1>
-        <button id="startBtn">Start</button>
+        <div id="innerContainer">
+            <div id="quizContainer" class="hidden">
+                <div id="quiz" class="hidden">
+                    <p id="problem"></p>
+                    <input type="number" id="answer" placeholder="Your answer" />
+                    <button id="submitBtn">Submit</button>
+                    <div id="numpad" class="numpad">
+                        <div class="row">
+                            <button class="num">1</button>
+                            <button class="num">2</button>
+                            <button class="num">3</button>
+                        </div>
+                        <div class="row">
+                            <button class="num">4</button>
+                            <button class="num">5</button>
+                            <button class="num">6</button>
+                        </div>
+                        <div class="row">
+                            <button class="num">7</button>
+                            <button class="num">8</button>
+                            <button class="num">9</button>
+                        </div>
+                        <div class="row">
+                            <button class="num">0</button>
+                            <button id="clearBtn">⌫</button>
+                            <button id="enterBtn">↵</button>
+                        </div>
+                    </div>
 
-        <div id="quizContainer" class="hidden">
-            <div id="quiz">
-                <p id="problem"></p>
-                <input type="number" id="answer" placeholder="Your answer" />
-                <button id="submitBtn">Submit</button>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h2>Results</h2>
+                    <label for="studentName">Your Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter your name">
+
+                    <p id="score"></p>
+                    <p id="time"></p>
+                    <p id="stars"></p>
+
+                    <label for="parentEmail">Parent's Email:</label>
+                    <input type="email" id="parentEmail" placeholder="Enter email" />
+                    <button id="emailJSBtn">Send Email</button>
+
+                    <button id="downloadBtn">Download Results</button>
+
+                    <!-- <button id="restartBtn">Play Again</button> -->
+                </div>
+
+                <div id="rules">
+                    <h2>Welcome!</h2>
+                    <p>Time to practice Multiplication!</p>
+                    <p>It might seem like a drag sometimes, but knowing and memorizing these common Multiplication
+                        problems will make all math easier in the long run.</p>
+                    <ol>
+                        <li>You get 3 attemts per problem before its marked "Wrong"</li>
+                        <li>If you get one wrong (3x) it will cycle to the next problem</li>
+                        <li>After you are finished, make sure to email this to a parent/teacher or download the results
+                            for review</li>
+                    </ol>
+                    <p>We recommend one practice a day, ideally before more difficult math work begins to wake the brain
+                        up a bit and get it in the mood for some mathin.</p>
+                    <button id="startBtn">Start</button>
+
+                </div>
             </div>
 
-            <div id="results" class="hidden">
-                <h2>Results</h2>
-                <p id="score"></p>
-                <p id="time"></p>
-                <p id="stars"></p>
 
-                <label for="parentEmail">Parent's Email:</label>
-                <input type="email" id="parentEmail" placeholder="Enter email" />
-
-                <button id="downloadBtn">Download Results</button>
-                <button id="emailJSBtn">Send Email via EmailJS</button>
-
-                <button id="restartBtn">Play Again</button>
+            <div id="tableContainer" class="hidden">
+                <table id="multiplicationTable"></table>
             </div>
-
-        </div>
-
-
-        <div id="tableContainer" class="hidden">
-            <h2>Multiplication Table</h2>
-            <table id="multiplicationTable"></table>
         </div>
     </div>
 
