@@ -217,7 +217,7 @@ startBtn.addEventListener("click", () => {
 
 submitBtn.addEventListener("click", checkAnswer);
 answerInput.addEventListener("keypress", e => { if (e.key === "Enter") checkAnswer(); });
-restartBtn.addEventListener("click", () => { results.classList.add("hidden"); startBtn.classList.remove("hidden"); });
+// restartBtn.addEventListener("click", () => { results.classList.add("hidden");startBtn.classList.remove("hidden"); });
 document.getElementById("downloadBtn").addEventListener("click", downloadResults);
 document.getElementById("emailJSBtn").addEventListener("click", sendEmailJS);
 
