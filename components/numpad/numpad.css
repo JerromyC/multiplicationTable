@@ -1,0 +1,22 @@
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.numpad button {
+  padding: 1rem;
+  color: black;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #e0f7fa;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.numpad button:hover {
+  background: #b2ebf2;
+}

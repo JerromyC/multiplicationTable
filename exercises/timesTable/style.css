@@ -1,0 +1,240 @@
+@import url(../../components/numpad/numpad.css);
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+#quiz, #results {
+  margin-top: 20px;
+}
+
+input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Multiplication Table */
+#multiplicationTable {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+#multiplicationTable td,
+#multiplicationTable th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+.unsolved {
+  color: #aaa;
+  font-style: italic;
+}
+
+.solved {
+  font-weight: bold;
+  color: #000;
+}
+
+.correct-first {
+  background-color: #c6f6c6; /* green */
+}
+
+.wrong-attempt {
+  background-color: #f6c6c6; /* red while unsolved */
+}
+
+.corrected {
+  background-color: #fff3b0; /* yellow after mistakes */
+}
+
+.wrong-final { background-color: #F44336; color: white; } /* red */
+
+/* CUSTOMS */
+
+#innerContainer {
+    display: flex;
+    max-height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#quizContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+#quiz {
+    width: 100%;
+}
+
+#problem {
+    font-size: 5vw;
+    line-height: 1;
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+    background-color: #f5f5f5;
+    border: #000 2px solid;
+    border-radius: 5px;
+}
+
+#tableContainer {
+    width: 45%;
+    margin: auto;
+}
+
+#rules {
+    font-size: 1.25em;
+    line-height: 1.25;
+}
+
+ol {
+    width: 70%;
+    margin: auto;
+}
+
+#rules p {
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+ol li {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.numpad {
+    width: 100%;
+  margin-top: 15px;
+}
+
+.numpad .row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.numpad button {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  margin: 3px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.numpad button:active {
+  background-color: #ccc;
+}
+
+#clearBtn {
+    background-color: #F44336;
+}
+
+#enterBtn {
+    background-color: #4CAF50;
+}
+
+#homeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  background-image: url(../../assets/home.svg);
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+}
+
+#homeBtn a {
+  width: 100%;
+  height: 100%; 
+}
+
+#homeBtn a:hover{
+  cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    #innerContainer {
+        align-items: center;
+    }
+
+    #rules {
+        font-size: 1em;
+    }
+
+    #rules p {
+        font-size: 0.8em;
+    }
+
+    ol {
+        width: 90%;
+    }
+
+    #quizContainer, 
+    #tableContainer {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+
+    #problem {
+        font-size: 8vw; /* scale problem text better on small screens */
+    }
+
+    #numpad button {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+        #tableContainer {
+        width: 100%;
+    }
+
+    #multiplicationTable {
+        width: 100%;        /* take full width of screen */
+        table-layout: fixed; /* force equal-sized cells */
+        font-size: 3vw;     /* scale text with screen */
+    }
+
+    #multiplicationTable td,
+    #multiplicationTable th {
+        width: 10%;           /* 10 cells across = 100% */
+        aspect-ratio: 1 / 1;  /* force squares */
+        padding: 0;           /* remove extra padding */
+    }
+}
+

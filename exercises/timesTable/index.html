@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiplication Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Multiplication Trainer</h1>
+    <div id="innerContainer">
+      <div id="quizContainer" class="hidden">
+        <div id="quiz" class="hidden">
+          <p id="problem"></p>
+          <input type="number" id="answer" placeholder="Your answer" />
+          <button id="submitBtn">Submit</button>
+
+          <!-- numpad loads here -->
+          <div id="numpadContainer"></div>
+        </div>
+
+        <div id="results" class="hidden">
+          <h2>Results</h2>
+          <label for="studentName">Your Name:</label>
+          <input type="text" id="studentName" placeholder="Enter your name">
+
+          <p id="score"></p>
+          <p id="time"></p>
+          <p id="stars"></p>
+
+          <label for="parentEmail">Parent's Email:</label>
+          <input type="email" id="parentEmail" placeholder="Enter email" />
+          <button id="emailJSBtn">Send Email</button>
+          <button id="downloadBtn">Download Results</button>
+        </div>
+
+        <div id="rules">
+          <h2>Welcome!</h2>
+          <p>Time to practice Multiplication!</p>
+          <ol>
+            <li>You get 3 attempts per problem before it is marked "Wrong".</li>
+            <li>If you get one wrong (3x), it will cycle to the next problem.</li>
+            <li>After finishing, make sure to email this to a parent/teacher or download the results.</li>
+          </ol>
+          <p>We recommend one practice a day, ideally before more difficult math work.</p>
+          <button id="startBtn">Start</button>
+        </div>
+      </div>
+
+      <div id="tableContainer" class="hidden">
+        <table id="multiplicationTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <div id="homeBtn"><a href="../../index.html"></a></div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("fiWkQXqRo48rxOKya");
+  </script>
+
+  <!-- Load numpad -->
+<script>
+  fetch("../../components/numpad/numpad.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("numpadContainer").innerHTML = html;
+
+      // Attach styles
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "../../components/numpad/numpad.css";
+      document.head.appendChild(link);
+
+      // Attach script
+      const script = document.createElement("script");
+      script.src = "../../components/numpad/numpad.js";
+      document.body.appendChild(script);
+    });
+</script>
+
+
+  <!-- Game logic -->
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -221,16 +221,3 @@ answerInput.addEventListener("keypress", e => { if (e.key === "Enter") checkAnsw
 document.getElementById("downloadBtn").addEventListener("click", downloadResults);
 document.getElementById("emailJSBtn").addEventListener("click", sendEmailJS);
 
-// ----- NUMPAD -----
-document.querySelectorAll(".num").forEach(btn => {
-  btn.addEventListener("click", () => {
-    answerInput.value += btn.textContent;
-  });
-});
-
-document.getElementById("clearBtn").addEventListener("click", () => {
-  answerInput.value = answerInput.value.slice(0, -1);
-});
-
-document.getElementById("enterBtn").addEventListener("click", checkAnswer);
-

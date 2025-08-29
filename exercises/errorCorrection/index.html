@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Error Correction – Multiplication Practice</title>
+</head>
+<body>
+
+  <div id="game">
+    <h2>Error Correction</h2>
+    <p id="problem"></p>
+    <input type="number" id="answerInput" placeholder="Correct Answer">
+    <button id="submitBtn">Submit</button>
+    <p id="feedback"></p>
+    <div id="numpadContainer"></div>
+
+  </div>
+<div id="homeBtn"><a href="../../index.html"></a></div>
+
+  <script src="./script.js"></script>
+
+  <script>
+  fetch("../../components/numpad/numpad.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("numpadContainer").innerHTML = html;
+
+      // Attach styles
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "../../components/numpad/numpad.css";
+      document.head.appendChild(link);
+
+      // Attach numpad logic
+      const script = document.createElement("script");
+      script.src = "../../components/numpad/numpad.js";
+      document.body.appendChild(script);
+    });
+</script>
+
+
+</body>
+</html>

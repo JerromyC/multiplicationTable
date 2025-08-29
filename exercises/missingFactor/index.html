@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Missing Factor – Multiplication Practice</title>
+</head>
+<body>
+
+  <div id="game">
+    <h2>Missing Factor</h2>
+    <p id="problem"></p>
+    <input type="number" id="answerInput" placeholder="?" />
+        <button id="submitBtn">Submit</button>
+
+    <div id="numpadContainer"></div>
+    <p id="feedback"></p>
+    <p id="score"></p>
+  </div>
+
+  <div id="homeBtn"><a href="../../index.html"></a></div>
+
+  <!-- Load numpad -->
+  <script>
+    fetch("../../components/numpad/numpad.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("numpadContainer").innerHTML = html;
+
+        // Attach styles
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "../../components/numpad/numpad.css";
+        document.head.appendChild(link);
+
+        // Attach numpad script
+        const script = document.createElement("script");
+        script.src = "../../components/numpad/numpad.js";
+        document.body.appendChild(script);
+      });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
