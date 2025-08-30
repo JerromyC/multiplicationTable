@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Multiplication Maze</title>
+</head>
+<body>
+
+  <div id="game">
+    <h2>Multiplication Maze</h2>
+
+    <div id="maze"></div>
+
+    <p id="problem"></p>
+    <input type="number" id="answerInput" placeholder="?" />
+    <button id="submitBtn">Submit</button>
+
+    <div id="controls">
+      <button onclick="setMove('up')">↑</button>
+      <button onclick="setMove('left')">←</button>
+      <button onclick="setMove('right')">→</button>
+      <button onclick="setMove('down')">↓</button>
+    </div>
+
+    <p id="feedback"></p>
+    <p id="score"></p>
+  </div>
+
+  <div id="homeBtn"><a href="../../index.html"></a></div>
+
+  <script src="maze.js"></script>
+</body>
+</html>

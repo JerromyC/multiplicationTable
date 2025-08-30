@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Array Builder – Multiplication Practice</title>
+</head>
+<body>
+
+  <div id="game">
+    <h2>Array Builder</h2>
+    <p id="problem"></p>
+
+    <div id="controls">
+      <div class="control">
+        <p>Rows: <span id="rowsCount">1</span></p>
+        <button onclick="changeRows(1)">+</button>
+        <button onclick="changeRows(-1)">-</button>
+      </div>
+      <div class="control">
+        <p>Columns: <span id="colsCount">1</span></p>
+        <button onclick="changeCols(1)">+</button>
+        <button onclick="changeCols(-1)">-</button>
+      </div>
+    </div>
+
+    <div id="arrayGrid"></div>
+
+    <button id="submitBtn">Check</button>
+
+    <p id="feedback"></p>
+    <p id="score"></p>
+  </div>
+
+  <div id="homeBtn"><a href="../../index.html"></a></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
